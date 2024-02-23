@@ -1,1 +1,3 @@
-<php> hahdasd <?php>
+fun main(){
+    println("Hello world!");
+}
