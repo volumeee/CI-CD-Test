@@ -10,14 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Setup JDK 11
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'adopt'
-        java-version: '11'
+      - name: Setup JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: "adopt"
+          java-version: "11"
 
-    - name: Run Kotlin Program
-      run: java -jar build/libs/*.jar
+      - name: Compile and Run Kotlin Program
+        run: |
+          kotlinc main.kt -include-runtime -d hello_world.jar
+          java -jar hello_world.jar
